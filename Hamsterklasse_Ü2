@@ -1,0 +1,85 @@
+
+/**
+ * Beschreiben Sie hier die Klasse HomeworkHamster.
+ * 
+ * @author (Henriette Lelickens,) 
+ * @version (eine Versionsnummer oder ein Datum)
+ */
+public class HomeworkHamster extends HomeworkHamsterGame{
+
+    /**
+     * Sorgt dafür das Paule sich nach rechts dreht. 
+     */
+    public void turnRight(){
+        this.paule.turnLeft();
+        this.paule.turnLeft();
+        this.paule.turnLeft();
+    
+    }
+    
+    /**
+     * Lässt Paule durch sein Territorium laufen, dabei alle Körner einsammeln und in seine Höhle bringen.
+     */
+    protected void run(){
+        //x ist der Laufinteger für die Anzahl der Körner, die Paule im Mund hat
+        int x = 0;
+        this.paule.move();
+        this.paule.move();
+        this.paule.move();
+        this.paule.move();
+        this.paule.move();
+        this.paule.pickGrain();
+        //Paule nimmt ein Korn auf, also wird der Integer um eins erhöht
+        x++;
+        this.paule.write("Ich habe " + x + " Korn im Mund");
+        turnRight();
+        this.paule.move();
+        turnRight();
+        this.paule.move();
+        this.paule.move();
+        this.paule.turnLeft();
+        this.paule.move();
+        this.paule.pickGrain();
+        x++;
+        this.paule.write("Ich habe " + x + " Körner im Mund");
+        this.paule.move();
+        turnRight();
+        this.paule.move();
+        this.paule.move();
+        this.paule.move();
+        this.paule.pickGrain();
+        x++;
+        this.paule.write("Ich habe " + x + " Körner im Mund");
+        this.paule.turnLeft();
+        this.paule.move();
+        this.paule.move();
+        this.paule.turnLeft();
+        this.paule.move();
+        this.paule.pickGrain();
+        x++;
+        this.paule.write("Ich habe " + x + " Körner im Mund");
+        this.paule.turnLeft();
+        this.paule.move();
+        turnRight();
+        this.paule.move();
+        this.paule.move();
+        turnRight();
+        this.paule.move();
+        this.paule.turnLeft();
+        this.paule.move();
+        this.paule.move();
+        this.paule.turnLeft();
+        this.paule.move();
+        this.paule.move();
+        this.paule.pickGrain();
+        x++;
+        this.paule.write("Ich habe " + x + " Körner im Mund");
+        /* Die Schleife läuft solange, bis Paule keine Körner mehr im Mund hat.
+         * Jedes mal, wenn Paule ein Korn ablegt wird der Integer x um eins erniedrigt. */
+        while (!this.paule.mouthEmpty()){
+            this.paule.putGrain();
+            x--;
+            this.paule.write("Ich habe " + (x) +" Körner im Mund");
+        }
+    }
+}
